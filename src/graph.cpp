@@ -6,6 +6,13 @@
  * BFS, DFS, ...
  */
 
+struct GraphNode {
+	int val; 
+	std::vector<GraphNode *> children; 
+	
+	GraphNode(int x): val(x), children(std::vector<GraphNode *>()){}
+}
+
 typedef std::vector<int> Vector;
 typedef std::vector<Vector> Matrix;
 
@@ -30,6 +37,7 @@ int calc_num_celebrity(Matrix &mat, int j, int N, Matrix &checked) {
 	return count; 
 }
 
+// 计算抖音网红的数量
 void calc_num_celebrity() {
 	int N, M; 
 	std::cin >> N >> M; 
