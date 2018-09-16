@@ -13,7 +13,7 @@ private:
 	char value;
 	int count = 0;
 	std::map<char, std::shared_ptr<TrieNode>> nodes;
-}
+};
 
 void TrieNode::add(std::string::iterator begin, std::string::iterator end) {
 	if (begin == end) return;
