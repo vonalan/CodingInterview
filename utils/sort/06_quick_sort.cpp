@@ -2,6 +2,7 @@
 
 using namespace std; 
 
+
 void Show(int *nums, int start, int end){
     for(int i = start; i < end; ++i){
         cout << nums[i] << " "; 
@@ -9,11 +10,13 @@ void Show(int *nums, int start, int end){
     cout << endl; 
 }
 
+
 void Swap(int *nums, int i, int j){
     int temp = nums[i]; 
     nums[i] = nums[j]; 
     nums[j] = temp; 
 }
+
 
 int PartionOld(int *nums, int start, int end){
     Swap(nums, start, end - 1); 
@@ -34,6 +37,7 @@ int PartionOld(int *nums, int start, int end){
 
     return pivot; 
 }
+
 
 int Partion(int *nums, int start, int end){
     int low = start, high = end; 
@@ -57,6 +61,32 @@ int Partion(int *nums, int start, int end){
     return start; 
 }
 
+
+int QuickPartion(vector<int> &nums, int sidx , int eidx) {
+    // 快排的核心算法: 返回切割点
+    if (sidx >= eidx) {return -1; }
+
+    int pivot = nums[sidx];
+    int lft = sidx, rht = eidx - 1;
+    while (lft < rht) {
+        // 从右往左找到第一个小于等于pivot的数
+        while (lft < rht && nums[rht] > pivot) {
+            rht--;
+        }
+        nums[lft] = nums[rht];
+
+        // 从左往右找到第一个大于pivot的数
+        while(lft < rht && nums[lft] <= pivot) {
+            lft++;
+        }
+        nums[rht] = nums[lft];
+    }
+    nums[lft] = pivot;
+    
+    return lft;
+}
+
+
 // Quick Sort, a enhancement version of Bubble Sort; 
 // The implementation of C++ std::sort(); 
 void QuickSort(int *nums, int start, int end){
@@ -68,6 +98,7 @@ void QuickSort(int *nums, int start, int end){
     QuickSort(nums, start, pivot - 1 + 1); 
     QuickSort(nums, pivot + 1, end); 
 }
+
 
 int main(int argc, char **argv){
     int N = 10; 
