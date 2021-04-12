@@ -63,7 +63,12 @@ int Partion(int *nums, int start, int end){
 
 
 int QuickPartion(vector<int> &nums, int sidx , int eidx) {
-    // 快排的核心算法: 返回切割点
+    // 快排的核心算法: 根据pivot切分数组, 返回切割点
+    /* 快排的最坏情况
+    *  左侧元素作为枢纽, 数组正序排过序; 右侧元素作为枢纽, 数组倒序排过序; 所有元素相同
+    *  由于每次只能处理一个元素, 时间复杂度是O(N**2)
+    *  随机选择pivot可以减少这种情况的出现, 除非选中了数组最大或者最小的元素
+    */
     if (sidx >= eidx) {return -1; }
 
     int pivot = nums[sidx];
@@ -82,7 +87,7 @@ int QuickPartion(vector<int> &nums, int sidx , int eidx) {
         nums[rht] = nums[lft];
     }
     nums[lft] = pivot;
-    
+
     return lft;
 }
 
