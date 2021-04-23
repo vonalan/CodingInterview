@@ -11,6 +11,7 @@ void Show(int *nums, int start, int end){
 
 // Straight Insertion Sort; 
 void StraightInsertSort(int *nums, int start, int end){
+    // 将未排序子数组的元素插入到排序子数组合适位置
     // Show(nums, start, end); 
 
     int temp = 0; 

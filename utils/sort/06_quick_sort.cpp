@@ -63,7 +63,7 @@ int Partion(int *nums, int start, int end){
 
 
 int QuickPartion(vector<int> &nums, int sidx , int eidx) {
-    // 快排的核心算法: 根据pivot切分数组, 返回切割点
+    // 快排的核心算法: 根据数值pivot切分数组, 返回切割点start
     /* 快排的最坏情况
     *  左侧元素作为枢纽, 数组正序排过序; 右侧元素作为枢纽, 数组倒序排过序; 所有元素相同
     *  由于每次只能处理一个元素, 时间复杂度是O(N**2)
@@ -89,6 +89,37 @@ int QuickPartion(vector<int> &nums, int sidx , int eidx) {
     nums[lft] = pivot;
 
     return lft;
+}
+
+
+int QuickSelect(vector<int> &nums, int lft , int rht, int mid){
+    // std::nth_element
+
+    // 借助QuickPartion, 对数组进行排序
+    // 使得mid左边的元素不大于mid, mid右边的元素不小于mid
+    while (true) {
+        int pivot_idx = QuickPartion(nums, lft, rht);
+        if (pivot_idx == mid) {
+            break;
+        }
+        if (pivot_idx < mid) {
+            lft = pivot_idx + 1;
+        } else {
+            rht = pivot_idx;
+        }
+    }
+
+    // 3路QuickPartion
+    // 把等于nums[mid]的值移到一起
+    lft = 0, rht = mid - 1;
+    while (lft < rht) {
+        while (lft < rht && nums[lft] != nums[mid]) {lft++; }
+        while (lft < rht && nums[rht] == nums[mid]) {rht--; }
+        if (lft >= rht) {break; }
+        swap(nums[lft], nums[rht]);
+    }
+
+    return nums[mid];
 }
 
 

@@ -11,6 +11,7 @@ void Show(int *nums, int start, int end){
 
 // Simple Selective Sort; 
 void SimpleSelectiveSortOld(int *nums, int start, int end){
+    // 这它喵写的是冒泡排序吧???
     // Show(nums, start, end); 
 
     int temp = 0; 
@@ -28,6 +29,10 @@ void SimpleSelectiveSortOld(int *nums, int start, int end){
 
 // Simple Selective Sort; Optimized! 
 void SimpleSelectiveSort(int *nums, int start, int end){
+    /* 选择排序
+     * 将未排序子数组中选出最值, 插入到排序子数组的合适位置
+     * 其中最值和排序子数组的合适位置是固定的. 这是和冒泡排序最大的区别
+    */
     // Show(nums, start, end); 
 
     int temp = 0; 

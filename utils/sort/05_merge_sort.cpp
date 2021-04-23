@@ -31,6 +31,8 @@ void Merge(int *nums, int *result, int start, int end, int middle){
 }
 
 void MergeSort(int *nums, int *result, int start, int end){
+    // 分治算法
+    // 自顶向下递归
     if(start >= end - 1) return ; 
 
     // Show(nums, start, end);

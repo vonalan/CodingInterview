@@ -28,10 +28,15 @@ void BubbleSortOld(int *nums, int start, int end){
 
 // Bubble Sort; 
 void BubbleSort(int *nums, int start, int end){
+    /* 冒泡排序
+     * 重复地走访过要排序的数列. 
+     * 一次比较两个元素, 如果他们的顺序错误就把他们交换过来
+    */
     // Show(nums, start, end); 
 
     int temp, flag = 1; 
     for(int i = start; i < end; ++i){
+        // flag并不能从本质上提升算法的性能
         flag = 1; 
         for(int j = start; j < end - 1 - i; ++j){
             if(nums[j] > nums[j+1]){
