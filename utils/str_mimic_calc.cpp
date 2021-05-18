@@ -30,3 +30,17 @@ string str_mimic_add(string num1, string num2) {
     }
     return res;
 }
+
+
+bool is_gt_int_max(string cur) {
+    // 和INT_MAX进行比较
+    string int_max = "2147483647";
+    if (cur.size() > int_max.size()) {return true; }
+    if (cur.size() == int_max.size()) {
+        for (int i = 0; i < cur.size(); ++i) {
+            if (cur[i] < int_max[i]) {break; }
+            if (cur[i] > int_max[i]) {return true; }
+        }
+    }
+    return false;
+}
