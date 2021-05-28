@@ -11,7 +11,7 @@ string str_mimic_add(string num1, string num2) {
 
     int pos = 0;
     int sum = 0, car = 0;
-    while (N - 1 - pos >= 0 || M - 1 - pos >= 0) {
+    while (pos < max(M, N)) {
         int lft = 0, rht = 0;
         if (N - 1 - pos >= 0) {lft = num1[N - 1 - pos] - '0'; }
         if (M - 1 - pos >= 0) {rht = num2[M - 1 - pos] - '0'; }
